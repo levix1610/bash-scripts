@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #script works with having to type in password but it is passed in plain text and is not very secure.
-#copy code block for each server
+#script not very useful but was an OK first attempt.
 
 # Server Name into Variable
 SERVER="Username@serverName.domain"

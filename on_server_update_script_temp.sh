@@ -3,9 +3,10 @@
 #sudo apt install expect
 #interpreter needed to run script. Make Sure its installed before use.
 
-#Script that needs to be distributed to each server
-#Master script executes remotely via ssh.
+#Script that needs to be distributed to each server.
+#control_update_script.sh used to run this local script on server.
 #chmod 700 this script to make sure ONLY user can read as password is in script
+#"Password" below will need to be changed to your user password.  USE WITH CARE.
 
 #Define the sudo password
 set timeout -1
