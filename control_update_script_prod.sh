@@ -5,10 +5,12 @@
 #SSH keys need to be shared to each server too.
 
 #Define server details
-SERVER="serverName.domain"
-REMOTE_SCRIPT="./remote_update.sh"
-REMOTE_USER="username"
+SERVER="ctus-prod-phi-01.pihole"
+REMOTE_SCRIPT="./on_server_update_script_prod.sh"
+#Set username - Doing LXC Containers first and need root user.
+REMOTE_USER="root"
 
 #SSH into server and run remote script
-ssh $REMOTE_USER@$SERVER "$REMOTE_SCRIPT"
+ssh -i ~.ssh/powers_prod $REMOTE_USER@$SERVER "$REMOTE_SCRIPT"
 echo "Remote script executed on $SERVER."
+
