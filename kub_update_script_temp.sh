@@ -4,9 +4,9 @@
 #currently used in a test environment
 
 #SSH to each server in descending order:
-ssh levix@10.0.150.210
-ssh levix@10.0.150.211
-ssh levix@10.0.150.212
+ssh -i ~/.ssh/microk8s_test_key.pub levix@10.0.150.210
+ssh -i ~/.ssh/microk8s_test_key.pub levix@10.0.150.211
+ssh -i ~/.ssh/microk8s_test_key.pub levix@10.0.150.212
 
 
 #grab host name of server
@@ -21,4 +21,11 @@ microk8s kubectl uncordon $host
 
 #Run update commands:
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove
+
+#Reboot the Server
+sudo reboot
+
+#Wait 10 Seconds
+sleep 15
+
 

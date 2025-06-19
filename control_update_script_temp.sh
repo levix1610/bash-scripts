@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #script works in conjunction with remote_update.sh script.
 #copy code block for each server.
 #SSH keys need to be shared to each server too.
