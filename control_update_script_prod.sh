@@ -11,6 +11,6 @@ REMOTE_SCRIPT="./on_server_update_script_prod.sh"
 REMOTE_USER="root"
 
 #SSH into server and run remote script
-ssh -i ~.ssh/powers_prod $REMOTE_USER@$SERVER "$REMOTE_SCRIPT"
+ssh -i .ssh/powers_prod $REMOTE_USER@$SERVER "$REMOTE_SCRIPT"
 echo "Remote script executed on $SERVER."
 
