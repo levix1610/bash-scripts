@@ -4,9 +4,9 @@
 #script not very useful but was an OK first attempt.
 
 # Server Name into Variable
-SERVER="Username@serverName.domain"
+SERVER="ctus-prod-phi-01.pihole"
 
 # SSH command and update commands
-ssh -A $SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean"
+ssh -i .ssh/powers_prod -A $SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean"
 echo "Update Complete. ($SERVER)"
 sleep 5
