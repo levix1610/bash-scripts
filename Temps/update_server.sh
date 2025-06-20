@@ -17,7 +17,6 @@ if [ $? -eq 0 ]; then
 else
   echo "Update Failed! ($SERVER) - Check for errors above."
 fi
-
 sleep 5
 
 #Set server to next.
@@ -31,7 +30,6 @@ if [ $? -eq 0 ]; then
 else
   echo "Update Failed! ($SERVER) - Check for errors above."
 fi
-
 sleep 5
 
 #Set server to next.
@@ -49,3 +47,51 @@ fi
 sleep 5
 
 
+###MOVE TO SERVER VM's###
+# User Variable change.
+REMOTE_USER="levix"
+
+#Set to docker/portainer server.
+SERVER="vmus-prod-ptr-01.server"
+
+# SSH command and update Docker/Portainer server.
+ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean"
+
+# Check the exit status of the ssh command
+if [ $? -eq 0 ]; then
+  echo "Update Complete. ($SERVER)"
+else
+  echo "Update Failed! ($SERVER) - Check for errors above."
+fi
+sleep 5
+
+#Set to Plex Server.
+SERVER="vmus-prod-plx-01.server"
+
+# SSH command and update Plex server.
+ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean"
+
+# Check the exit status of the ssh command
+if [ $? -eq 0 ]; then
+  echo "Update Complete. ($SERVER)"
+else
+  echo "Update Failed! ($SERVER) - Check for errors above."
+fi
+sleep 5
+
+#Set to snmp observium server.
+SERVER="vmus-prod-obs-01.server"
+
+# SSH command and update observium server.
+ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean"
+
+# Check the exit status of the ssh command
+if [ $? -eq 0 ]; then
+  echo "Update Complete. ($SERVER)"
+else
+  echo "Update Failed! ($SERVER) - Check for errors above."
+fi
+sleep 5
+
+
+echo "##########UPDATE SCRIPT COMPLETED!##########
