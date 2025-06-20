@@ -37,7 +37,8 @@ sleep 5
 #Set server to next.
 SERVER="cttk-prod-nxt-01.server"
 # SSH command and update nextcloud LXC.
-ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean"
+# sudo needs to be remove for this container host.
+ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "apt update && apt upgrade -y && apt autoremove -y && apt autoclean"
 
 # Check the exit status of the ssh command
 if [ $? -eq 0 ]; then
