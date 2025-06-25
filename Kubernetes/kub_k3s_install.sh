@@ -29,3 +29,11 @@ sudo cat /var/lib/rancher/k3s/server/node-token
 #This will get your token from your control plane node to add the other nodes, run:
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN='mynodetoken' sh -
 
+#If you want to add any servers with some specific roles.
+
+#Dedicated etcd Nodes:
+curl -fL https://get.k3s.io | sh -s - server --cluster-init --disable-apiserver --disable-controller-manager --disable-scheduler
+
+#Dedicated control-plane Nodes:
+curl -fL https://get.k3s.io | sh -s - server --token <token> --disable-etcd --server https://<etcd-only-node>:6443 
+
