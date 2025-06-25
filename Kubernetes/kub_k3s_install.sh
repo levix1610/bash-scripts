@@ -37,3 +37,6 @@ curl -fL https://get.k3s.io | sh -s - server --cluster-init --disable-apiserver 
 #Dedicated control-plane Nodes:
 curl -fL https://get.k3s.io | sh -s - server --token <token> --disable-etcd --server https://<etcd-only-node>:6443 
 
+
+#Rename node Label:
+kubectl label node <node-name> node-role.kubernetes.io/worker=worker
