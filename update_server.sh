@@ -9,7 +9,7 @@ SERVER="ctus-prod-phi-01.pihole"
 REMOTE_USER="root"
 
 # SSH command and update pihole server.
-ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean && pihole -up"
+ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "apt update && apt upgrade -y && apt autoremove -y && apt autoclean && pihole -up"
 
 # Check the exit status of the ssh command
 if [ $? -eq 0 ]; then
@@ -22,7 +22,7 @@ sleep 5
 #Set server to next.
 SERVER="ctus-prod-phi-02.pihole"
 # SSH command and update pihole server two.
-ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean && pihole -up"
+ssh -i .ssh/powers_prod -A $REMOTE_USER@$SERVER "apt update && apt upgrade -y && apt autoremove -y && apt autoclean && pihole -up"
 
 # Check the exit status of the ssh command
 if [ $? -eq 0 ]; then
