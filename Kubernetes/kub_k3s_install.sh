@@ -44,3 +44,10 @@ curl -fL https://get.k3s.io | sh -s - server --token <token> --disable-etcd --se
 
 #Rename node Label:
 kubectl label node <node-name> node-role.kubernetes.io/worker=worker
+
+#Disable cockpit for Rocky Linux:
+sudo systemctl stop cockpit.socket
+sudo systemctl disable cockpit.socket
+
+
+
