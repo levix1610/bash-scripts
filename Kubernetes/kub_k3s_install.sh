@@ -5,6 +5,9 @@
 #It is recommended to turn off firewalld:
 sudo systemctl disable firewalld --now
 
+#Since I am using NFS share for data storage utils needs to also be installed:
+sudo dnf install nfs-utils
+
 #If you do not want to fully disable you can add these rules instead:
 firewall-cmd --permanent --add-port=6443/tcp #apiserver
 firewall-cmd --permanent --zone=trusted --add-source=10.42.0.0/16 #pods
@@ -19,10 +22,11 @@ curl -sfL https://get.k3s.io | sh -
 #First chmod the file so root and group can read the file.
 sudo chmod 640 /etc/rancher/k3s/k3s.yaml
 
-#Next run 'groups' to get your user group.
-#Run the following command to modify the k3s.yaml file to be your users group:
+#chmod of 770 also works good to make it rwx for owner and group.  May need to chgrp the k3s.yaml file as well:
 sudo chgrp 'groupName' k3s.yaml
 #This will then let your run commands against the kubectl api for your user without sudo su - uses.
+sudo chmod 770 /etc/rancher/k3s/k3s.yaml
+
 
 #From their, will need to add the other nodes.  Run the following command to get your token:
 sudo cat /var/lib/rancher/k3s/server/node-token
