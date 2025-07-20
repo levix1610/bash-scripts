@@ -55,9 +55,14 @@ SERVER="vmus-prod-ptr-01.server"
 
 # SSH command and update Docker/Portainer server.
 ssh -i .ssh/powers_prod $REMOTE_USER@$SERVER "$REMOTE_SCRIPT"
-echo "Remote script executed on $SERVER."
 
+if [ $? -eq 0 ]; then
+  echo "Update Complete. ($SERVER)"
+else
+  echo "Update Failed! ($SERVER) - Check for errors above."
+fi
 sleep 5
+
 
 #Set to Plex Server.
 SERVER="vmus-prod-plx-01.server"
