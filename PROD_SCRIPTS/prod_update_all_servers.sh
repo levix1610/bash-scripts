@@ -81,4 +81,4 @@ ssh -i .ssh/powers_prod $REMOTE_USER@$SERVER "$REMOTE_SCRIPT"
 echo "Remote script executed on $SERVER."
 
 
-echo "##########UPDATE SCRIPT COMPLETED!##########
+echo "##########UPDATE SCRIPT COMPLETED!##########"
